@@ -28,8 +28,7 @@ end
 
 get '/notes/:id/edit' do |id|
   @note = Note.find(id)
-  # @note.update_attributes(params[:note])
-  erb :note_edit
+  erb :note_edit, layout: false
 end
 
 post '/notes/:id/edit' do |id|

@@ -24,13 +24,15 @@ $(document).ready(function(){
         // set note fields to be editable and send the edited information to
         $('.edit_note').click(function(event){
           event.preventDefault();
-          $(current_link).children().children().remove();
-          // $.ajax({
-          //   url: edit_link,
-          //   method: 'GET'
-          // }).done(function(){
-          //   $(current_link).parent().hide();
-          // });
+          var edit_link = $(this).attr('href');
+          $.ajax({
+            url: edit_link,
+            method: 'GET'
+          }).done(function(requestData){
+            $(current_link).siblings().hide();
+            $(current_link).parent().append(requestData + '<br/><hr/ class="invite">');
+            $()
+          });
         });
       }).error(function(){
       });
