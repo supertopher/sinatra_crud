@@ -34,4 +34,5 @@ end
 post '/notes/:id/edit' do |id|
   @note=Note.find(id)
   @note.update_attributes(params[:note])
+  redirect '/'
 end
