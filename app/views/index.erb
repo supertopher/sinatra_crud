@@ -1,5 +1,6 @@
   <ul>
     <% @notes.each do |note| %>
-      <li><a class="event_link"href="/notes/<%=note.id%>/show"><%=note.title%></a></li>
+      <li><a class="event_link"href="/notes/<%=note.id%>/show"><%=note.title%></a>
+        <span class="delete_me"><a href="/notes/<%= note.id %>/delete">Remove Note</a></li>
     <% end %>
   </ul>

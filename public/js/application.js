@@ -20,9 +20,32 @@ $(document).ready(function(){
     }).done(function(requestData){
       $('.invite').remove();
       $(current_link).prepend('<hr/ class="invite">');
-      $(current_link).parent().append(requestData + '<hr/ class="invite">');
-      console.log(requestData);
-    }).error(function(){
+      $(current_link).parent().append(requestData + '<br/><hr/ class="invite">');
+        // set note fields to be editable and send the edited information to
+        $('.edit_note').click(function(event){
+          event.preventDefault();
+          $(current_link).children().children().remove();
+          // $.ajax({
+          //   url: edit_link,
+          //   method: 'GET'
+          // }).done(function(){
+          //   $(current_link).parent().hide();
+          // });
+        });
+      }).error(function(){
+      });
+    });
+
+  // click through the delete link with ajax and hide the information on current page
+  $('.delete_me').click(function(event){
+    event.preventDefault();
+    var current_link = $(this);
+    var delete_link = $(this).attr('href');
+    $.ajax({
+      url: delete_link,
+      method: 'GET'
+    }).done(function(){
+      $(current_link).parent().hide();
     });
   });
 

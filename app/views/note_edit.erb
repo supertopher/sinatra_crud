@@ -1,0 +1,8 @@
+<form class="new_action" action="/notes/:id/edit" method="post">
+  Don't forget!
+  <br>
+  <input type="text" name="note[title]" value="<%= @note.title %>">
+  <br/>
+  <input type="text" name="note[body]" value="<%= @note.body %>">
+  <input type="submit" value="Create note!">
+</form>

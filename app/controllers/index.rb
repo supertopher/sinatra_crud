@@ -5,8 +5,8 @@ get '/' do
 end
 
 post '/' do
-  p params[:note]
-  @note = note.create(params[:note])
+  # p params[:note]
+  @note = Note.create(params[:note])
   @notes = Note.all
   if @note.valid?
     redirect '/'
@@ -18,4 +18,21 @@ end
 get '/notes/:id/show' do |id|
   @note = Note.find(id)
   erb :note_show, :layout => false
+end
+
+get '/notes/:id/delete' do |id|
+  @note = Note.find(id)
+  @note.delete
+  erb :note_show, :layout => false
+end
+
+get '/notes/:id/edit' do |id|
+  @note = Note.find(id)
+  # @note.update_attributes(params[:note])
+  erb :note_edit
+end
+
+post '/notes/:id/edit' do |id|
+  @note=Note.find(id)
+  @note.update_attributes(params[:note])
 end

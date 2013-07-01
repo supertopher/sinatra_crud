@@ -85,3 +85,11 @@ form.quirks {
   margin-right: 20px;
   width: 200px;
 }
+
+.delete_me{
+  float:right;
+}
+
+.edit_note{
+  float:right;
+}
